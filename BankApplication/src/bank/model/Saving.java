@@ -8,6 +8,9 @@ import framework.model.Customer;
  * */
 public class Saving extends Account{
 
+	public Saving(){
+	  super();	
+	}
 	public Saving(Customer customer) {
 		super(customer);
 		// TODO Auto-generated constructor stub

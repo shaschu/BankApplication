@@ -1,7 +1,5 @@
 package bank;
 
-import java.awt.event.ActionEvent;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -9,15 +7,14 @@ import javax.swing.JTextField;
 import framework.helper.IAction;
 import framework.view.ActionButton;
 import framework.view.EntryDialog;
-import framework.view.EventHandler;
 import framework.view.FwActionListener;
-import framework.view.UI;
+
 
 public class DepositDialog extends EntryDialog {
-
-	public DepositDialog( String title) {
+	BankController controller;
+	public DepositDialog( String title, BankController controller) {
 		super( title);
-		// TODO Auto-generated constructor stub
+		this.controller = controller;
 	}
 
 	@Override
@@ -31,7 +28,11 @@ public class DepositDialog extends EntryDialog {
         okbButton.addActionListener(new FwActionListener(new IAction(){
         	@Override
 			public void performAction() {
-        		//ok operation
+	        	   String accName = nameField.getText();
+	        	   double amount = Double.parseDouble(amountField.getText());
+	        	  
+	        	   controller.makeDepositTransacation(accName,amount);
+	        	   cancel();
 			}	
     	}));
         okbButton.setBounds(1, 1, 80, 20);

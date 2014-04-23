@@ -37,10 +37,11 @@ public class PersonalAccountDialog extends AccountDialog {
 	        	          state =  stateField.getText(),
 	        	          zip   =  zipField.getText(),
 	        	          email =  emailField.getText(),
-	        	          birthdate = bodField.getText();
+	        	          birthdate = bodField.getText(),
+	        	          accType=groupJButtons.getSelection().getActionCommand();
 	        	    
-	        	   System.out.println("cont" + controller);
-	        	   controller.addPersonalCustomer(name, street, city, state, zip, email, birthdate);
+	        	  // System.out.println("cont" + controller);
+	        	   controller.addPersonalAccount(name, street, city, state, zip, email, birthdate,accType);
 	        	   cancel();
 				}	
 	    	}));

@@ -10,7 +10,7 @@ public class Entry
 
     public Entry(double amount) {
         this.amount = amount;
-        this.date = Calendar.getInstance().getTime();
+        //this.date = Calendar.getInstance().getTime();
     }
 
     public Date getDate() {

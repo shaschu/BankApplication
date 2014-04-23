@@ -112,6 +112,13 @@ public abstract class Customer implements ICustomer {
     	return accounts;
     }
     
+    public double getTotalAmount(){
+    	double total = 0;
+    	for (Account account : accounts){
+    		total += account.getCurrentBalance();
+    	}
+    	return total;
+    }
     //return a particular account by account number
     public Account getAccount(int accNumber){
     	for (Account account : accounts){

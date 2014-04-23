@@ -7,7 +7,7 @@ import framework.view.ViewPane;
 public interface IFactory {
   public Account createAccount();
   public Customer createCustomer();
-  public Entry createEntry();
+  public Entry createEntry(double amount);
   public IDataModel createDataModel();
-
+  public Account createAccount(String accType);
 }

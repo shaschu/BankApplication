@@ -14,11 +14,11 @@ import framework.view.FwActionListener;
 import framework.view.UI;
 
 public class CompanyAccountDialog extends AccountDialog {
-
+	 BankController controller;
 	public CompanyAccountDialog( String title, BankController controller) {
 		super(title,controller);
 		// TODO Auto-generated constructor stub
-
+		this.controller = controller;
 	}
 
 	@Override
@@ -32,7 +32,19 @@ public class CompanyAccountDialog extends AccountDialog {
 	        okbButton.addActionListener(new FwActionListener(new IAction(){
 	        	@Override
 				public void performAction() {
-	        		//ok action here
+	        		 String name =  namefField.getText(),
+		        	          street = streetField.getText(),
+		        	          city  =  cityField.getText(),
+		        	          state =  stateField.getText(),
+		        	          zip   =  zipField.getText(),
+		        	          email =  emailField.getText(),
+		        	          accType=groupJButtons.getSelection().getActionCommand();
+		        	   int numOfEmps= Integer.parseInt(noOfEmployeeField.getText());
+		        	  // checkinButton.get
+		        	    
+		        	   System.out.println("cont" + controller);
+		        	   controller.addCompanyAccount(name, street, city, state, zip, email, numOfEmps,accType);
+		        	   cancel();
 				}	
 	    	}));
 	        okbButton.setBounds(1, 1, 80, 20);

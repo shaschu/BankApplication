@@ -22,13 +22,11 @@ public abstract class FwFactory extends AFactory{
 		return new Organization(name, email,street, city, state, zip, numOfEmps);
 	}
 
-	@Override
-	public Entry createEntry(double amount) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	 public abstract Entry createEntry(double amount);
 
 	 public abstract IDataModel createDataModel() ;
 	
 	 public  abstract ViewPane defaultPane(UI parentWindow);
+	 
+	 public abstract Account createAccount(String accType);
 }

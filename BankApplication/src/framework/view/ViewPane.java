@@ -4,7 +4,7 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-public abstract class ViewPane extends JPanel implements Observer{
+public abstract class ViewPane extends JPanel implements Observer,ITable{
 	protected static UI parentWindow;
 	public ViewPane(){
 		super();

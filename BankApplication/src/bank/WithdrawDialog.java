@@ -13,10 +13,11 @@ import framework.view.FwActionListener;
 import framework.view.UI;
 
 public class WithdrawDialog extends EntryDialog {
-
-	public WithdrawDialog(String title) {
+	BankController controller;
+	public WithdrawDialog(String title,BankController controller) {
 		super(title);
 		// TODO Auto-generated constructor stub
+		this.controller = controller;
 	}
 
 	@Override
@@ -30,7 +31,11 @@ public class WithdrawDialog extends EntryDialog {
         okbButton.addActionListener(new FwActionListener(new IAction(){
         	@Override
 			public void performAction() {
-        		//ok operation
+        		 String accName = nameField.getText();
+	        	   double amount = Double.parseDouble(amountField.getText());
+	        	  
+	        	   controller.makeWithdrawalTransacation(accName,amount);
+	        	   cancel();
 			}	
     	}));
         okbButton.setBounds(1, 1, 80, 20);

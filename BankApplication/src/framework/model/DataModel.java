@@ -59,6 +59,17 @@ public class DataModel extends IDataModel {
 		 
 		return null;
 	}
+    //get customer by name
+	Customer getCustomer(String accName) {
+		 for (Customer customer :customers){
+			  if(customer.getName().equals(accName)){
+				 return customer;
+			  }
+		 }
+		 
+		return null;
+	}
+	
     //return the list of customers
 	@Override
 	public List<Customer> allCustomers() {
@@ -93,6 +104,27 @@ public class DataModel extends IDataModel {
         	//find customer by number
         	return getCustomer(custNumber).getAccounts();       	    		
         }
+	}
+	@Override
+	public void insertEntry(String accName, Entry entry) {
+	   try{
+		Customer customer = getCustomer(accName);
+		 System.out.println("insert entry name"+accName);
+		if(customer != null){
+		   List<Account> accounts = customer.getAccounts();
+		   System.out.println("insert entry size"+accounts.size());
+		   if(!accounts.isEmpty()){
+			   Account account = accounts.get(0);
+			   account.addEntry(entry);
+			 //notify view observers
+				setChanged();
+		        notifyObservers(customers);
+		   }
+		}
+	   }
+	   catch(Exception e){
+		   System.out.println("Error "+e);
+	   }
 	}
 
 }

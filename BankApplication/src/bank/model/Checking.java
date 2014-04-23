@@ -4,7 +4,9 @@ import framework.model.Account;
 import framework.model.Customer;
 
 public class Checking extends Account{
-	
+	public  Checking(){
+		super();
+	}
 	public Checking(Customer customer) {
 		super(customer);
 		// TODO Auto-generated constructor stub

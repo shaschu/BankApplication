@@ -37,50 +37,7 @@ public abstract class UI extends JFrame{
     	this.panel = panel;
     }
     
-    FwController getController(){
+    public FwController getController(){
     	return controller;
     }
-
-   /* public Object getSelectedCell(int col) {
-        int row = viewerTable.getSelectedRow();
-        return row == -1 ? null : viewerTable.getValueAt(row, col);
-    }
-
-    public String getSelectedCustomer() {
-        int row = viewerTable.getSelectedRow();
-        return row == -1 ? null : (String) viewerTable.getValueAt(row, 0);
-    }
-  
-    public abstract DefaultTableModel createModel();
-
-    public void updateCell(Object o, int c) {
-        viewerTable.setValueAt(o, viewerTable.getSelectedRow(), c);
-    }
-
-
-    public abstract JPanel createActions();
-
-    protected DefaultTableModel getModel() {
-        return (DefaultTableModel) viewerTable.getModel();
-    }
-
-    public abstract void updateModel();
-
-
-    public abstract void updateDataModel(Customer c, Account a, DefaultTableModel model);
-
-    public void updateData(Customer c, Account a) {
-        updateDataModel(c, a, (DefaultTableModel) viewerTable.getModel());
-//        accounts.add(a);
-    }
-    
-    //override the View interface methods
-
-    
-    private JPanel actionsPanel;
-    private JScrollPane scroller;
-    private JTable viewerTable;
-    */
-    //private FinancialCompany controller;
-//    private List<Account> accounts;
 }

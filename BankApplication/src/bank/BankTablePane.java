@@ -67,7 +67,7 @@ public class BankTablePane extends TableView{
         depositButton.addActionListener(new FwActionListener(new IAction(){
         	@Override
 			public void performAction() {
-        		new DepositDialog("Deposit into Account");
+        		new DepositDialog("Deposit into Account", parentWindow.getController());
 			}	
     	}));
         actions.add(depositButton);
@@ -77,7 +77,7 @@ public class BankTablePane extends TableView{
         withdrawButton.addActionListener(new FwActionListener(new IAction(){
         	@Override
 			public void performAction() {
-        		new WithdrawDialog("Withdraw from Account");
+        		new WithdrawDialog("Withdraw from Account",parentWindow.getController());
 			}	
     	}));
         actions.add(withdrawButton);
@@ -86,7 +86,7 @@ public class BankTablePane extends TableView{
         exitButton.addActionListener(new FwActionListener(new IAction(){
         	@Override
 			public void performAction() {
-        		new WithdrawDialog("Withdraw from Account");
+        		System.exit(1);
 			}	
     	}));
         actions.add(exitButton);
@@ -124,12 +124,23 @@ public class BankTablePane extends TableView{
 	        	objects[4] = customer.getZip();
 	        	objects[5] = customer.getStreet();
 	        	objects[6] = customer.getStreet();
-	        	objects[7] = 23;//get amountcustomer.g;
+	        	objects[7] = customer.getTotalAmount();
 	        	aModel.addRow(objects);
         	}
         	//binding the jtable to the model
               this.viewerTable.setModel(aModel);
+              this.getSelectedCustomer();
     }
+    
+   /* public List getSelectedTableItems(){
+        int[] rows = viewerTable.getSelectedRows();
+        for(int i=0; i< rows.length; i++){
+          viewerTable.getModel().getValueAt(rows[i],0);
+        }
+      
+    	return null;
+    }
+    */
     
     	
 	

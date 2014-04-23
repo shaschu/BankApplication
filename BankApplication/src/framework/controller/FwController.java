@@ -58,13 +58,16 @@ public class FwController implements IController {
     }
     
     /* 
-     * add entry to customer account
+     * add entry to customer account by the account number
      *  */
     public void makeTransacation(int accNumber,Entry entry) {
     	dataModel.insertEntry(accNumber, entry);
-    	//update the view
-		//TODO
-		//view.updateView();
+    }
+    /* 
+     * add entry to customer account by the account name
+     *  */
+    public void makeTransacation(String accName,Entry entry) {
+    	dataModel.insertEntry(accName.trim(), entry);
     }
     
     //list and show all accounts of all customers

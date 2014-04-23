@@ -39,18 +39,21 @@ public abstract class AccountDialog extends JFrame {
           extraFields=extraFields();
           
           getContentPane().setLayout(null);
-         
-//          ButtonGroup group = new ButtonGroup();
-//          group.add(checkinButton);
-//          group.add(savinButton);
           
           checkinButton=new JRadioButton("Checkings");
           checkinButton.setBounds(20, 10, 100, 20);
-          getContentPane().add(checkinButton);
-          
+          checkinButton.setSelected(true);
           
           savinButton=new JRadioButton("Savings");
           savinButton.setBounds(20, 30, 100, 20);
+          checkinButton.setActionCommand("1");
+          savinButton.setActionCommand("2");
+          
+          groupJButtons = new ButtonGroup();
+          groupJButtons.add(checkinButton);
+          groupJButtons.add(savinButton);
+          
+          getContentPane().add(checkinButton);
           getContentPane().add(savinButton);
           
           nameLabel=new JLabel("Name");
@@ -129,9 +132,9 @@ public abstract class AccountDialog extends JFrame {
     	  
       }
       
-      private JRadioButton savinButton;
-      private JRadioButton checkinButton;
-      
+      protected JRadioButton savinButton;
+      protected JRadioButton checkinButton;
+      protected ButtonGroup groupJButtons;
       protected JLabel nameLabel;
       protected JTextField namefField;
       protected JLabel streetlJLabel;

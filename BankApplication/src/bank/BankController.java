@@ -23,21 +23,23 @@ public class BankController extends FwController {
     /**
      *  action to Personal customer to the data model
      */
-    public void addPersonalCustomer(String name, String street, String city, 
-    		                        String state, String zip, String email, String birthdate) 
+    public void addPersonalAccount(String name, String street, String city,  String state,
+    		                        String zip, String email, String birthdate, String accType) 
     {
-
-    	addCustomer(creator.createPersonalCustomer(name, street, city, state, zip, email, birthdate));
+        Customer customer =  creator.createPersonalCustomer(name.trim(), street, city, state, zip, email, birthdate);
+    	customer.addAccount(creator.createAccount(accType));
+        addCustomer(customer);
     }
     
     /**
      *  action to Personal customer to the data model
      */
-    public void addCompanyCustomer(String name, String street, String city, 
-    		                       String state, String zip, String email, int numOfEmps) 
+    public void addCompanyAccount(String name, String street, String city, String state,
+    		                       String zip, String email, int numOfEmps,String accType) 
     {
-    	 
-    	super.addCustomer(creator.createCompanyCustomer(name, street, city, state, zip, email, numOfEmps));
+    	Customer  customer = creator.createCompanyCustomer(name.trim(), street, city, state, zip, email, numOfEmps);
+     	customer.addAccount(creator.createAccount(accType));    	
+    	super.addCustomer(customer);
     }
  
     /* 
@@ -50,15 +52,18 @@ public class BankController extends FwController {
     /* 
      * add deposit to customer account
      *  */
-    public void makeDepositTransacation(int accNumber,double amount) {	
-       super.makeTransacation(accNumber, creator.createEntry(amount));
+    public void makeDepositTransacation(String accNum,double amount) {
+       String accountName = (!accNum.isEmpty())? accNum : view.getSelectedCustomer().toString();
+       super.makeTransacation(accountName.trim(), creator.createEntry(amount));
     }
     
     /* 
      * add withdrawal to customer account
      *  */
-    public void makeWithdrawalTransacation(int accNumber,double amount) {
-    	 super.makeTransacation(accNumber, creator.createEntry(amount));
+    public void makeWithdrawalTransacation(String accNum,double amount) {   	 
+    	String accountName = (!accNum.isEmpty())? accNum : view.getSelectedCustomer().toString() ;
+    	double wAmount = -1 * amount ; //withdrawal is  
+        super.makeTransacation(accountName.trim(), creator.createEntry(wAmount));
     }
     
 }

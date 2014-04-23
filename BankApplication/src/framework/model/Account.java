@@ -17,6 +17,9 @@ public abstract class Account  implements IAccount {
     
     public double interest_rate;
    
+    public Account(){
+    	currentBalance =0; 
+    }
     public Account(Customer customer) {
         this.customer = customer;
       

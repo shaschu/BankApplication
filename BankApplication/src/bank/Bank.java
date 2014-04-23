@@ -10,7 +10,8 @@ import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class Bank  {   
+public class Bank  { 
+	
     public static void main(String... args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

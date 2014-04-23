@@ -13,6 +13,7 @@ import framework.helper.*;
 
 public abstract class IDataModel extends Observable{
    public abstract void insertEntry(int accNumber,Entry entry);
+   public abstract void insertEntry(String accName,Entry entry);
    public abstract void insertAccount(int cusNumber,Account account);
    public abstract void insertCustomer(Customer customer);
    public abstract Customer getCustomer(int cusNumber);
