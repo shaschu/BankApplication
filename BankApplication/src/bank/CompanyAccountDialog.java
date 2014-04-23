@@ -7,17 +7,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import framework.controller.EventHandler;
-import framework.controller.ExitHandler;
-import framework.controller.FinancialCompany;
+import framework.helper.IAction;
 import framework.view.AccountDialog;
 import framework.view.ActionButton;
+import framework.view.FwActionListener;
 import framework.view.UI;
 
 public class CompanyAccountDialog extends AccountDialog {
 
-	public CompanyAccountDialog(FinancialCompany l, String title) {
-		super(l, title);
+	public CompanyAccountDialog( String title, BankController controller) {
+		super(title,controller);
 		// TODO Auto-generated constructor stub
 
 	}
@@ -29,25 +28,26 @@ public class CompanyAccountDialog extends AccountDialog {
 	      
 	        ActionButton okbButton = new ActionButton();
 	        okbButton.setText("OK");
-	        okbButton.setHandler(new AccountHandler(AccountHandler.addPersonal));
-	        okbButton.addActionListener(getListener());
+	       // okbButton.setHandler(new AccountHandler(AccountHandler.addPersonal));
+	        okbButton.addActionListener(new FwActionListener(new IAction(){
+	        	@Override
+				public void performAction() {
+	        		//ok action here
+				}	
+	    	}));
 	        okbButton.setBounds(1, 1, 80, 20);
 	        actions.add(okbButton);
 	        
 	        
 	        ActionButton cancelButton = new ActionButton();
 	        
-	      
 	        cancelButton.setText("Cancel");
-	        cancelButton.setHandler(new EventHandler() {
-				
-				@Override
-				public void handle(UI view, FinancialCompany controller, ActionEvent e) {
-					// TODO Auto-generated method stub
-					cancel();
-				}
-			});
-	        cancelButton.addActionListener(getListener());
+	        cancelButton.addActionListener(new FwActionListener(new IAction(){
+	        	@Override
+				public void performAction() {
+	        		cancel();
+				}	
+	    	}));
 	        cancelButton.setBounds(80, 1, 80, 20);
 	        actions.add(cancelButton);
 	        

@@ -1,9 +1,10 @@
-
 package framework.controller;
 
 import framework.model.Customer;
 import framework.view.ActionButton;
+import framework.view.EventHandler;
 import framework.view.UI;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -23,9 +24,7 @@ public abstract class FinancialCompany
 
     }
 
-    /**
-     *
-     */
+ 
     public void addCustomer(Customer customer) {
         customers.add(customer);
     }
@@ -56,7 +55,7 @@ public abstract class FinancialCompany
     @Override
     public void actionPerformed(ActionEvent e) {
         EventHandler action = ((ActionButton) e.getSource()).getHandler();
-        action.handle(view, this, e);
+        action.handle(view,  e);
     }
 
     protected List<Customer> customers;

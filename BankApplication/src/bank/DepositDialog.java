@@ -6,16 +6,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import framework.controller.EventHandler;
-import framework.controller.FinancialCompany;
+import framework.helper.IAction;
 import framework.view.ActionButton;
 import framework.view.EntryDialog;
+import framework.view.EventHandler;
+import framework.view.FwActionListener;
 import framework.view.UI;
 
-public class DipositDialog extends EntryDialog {
+public class DepositDialog extends EntryDialog {
 
-	public DipositDialog(FinancialCompany l, String title) {
-		super(l, title);
+	public DepositDialog( String title) {
+		super( title);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -27,8 +28,12 @@ public class DipositDialog extends EntryDialog {
       
         ActionButton okbButton = new ActionButton();
         okbButton.setText("OK");
-        okbButton.setHandler(new AccountHandler(AccountHandler.Deposit));
-        okbButton.addActionListener(getListener());
+        okbButton.addActionListener(new FwActionListener(new IAction(){
+        	@Override
+			public void performAction() {
+        		//ok operation
+			}	
+    	}));
         okbButton.setBounds(1, 1, 80, 20);
         actions.add(okbButton);
         
@@ -37,15 +42,13 @@ public class DipositDialog extends EntryDialog {
         
       
         cancelButton.setText("Cancel");
-        cancelButton.setHandler(new EventHandler() {
-			
-			@Override
-			public void handle(UI view, FinancialCompany controller, ActionEvent e) {
-				// TODO Auto-generated method stub
-				cancel();
-			}
-		});
-        cancelButton.addActionListener(getListener());
+ 
+        cancelButton.addActionListener(new FwActionListener(new IAction(){
+        	@Override
+			public void performAction() {
+        		cancel();
+			}	
+    	}));
         cancelButton.setBounds(80, 1, 80, 20);
         actions.add(cancelButton);
         

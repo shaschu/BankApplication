@@ -2,14 +2,14 @@ package bank;
 
 import java.awt.event.ActionEvent;
 
-import framework.controller.EventHandler;
+import framework.view.EventHandler;
 import framework.controller.FinancialCompany;
 import framework.model.Personal;
 import framework.view.AccountDialog;
 import framework.view.EntryDialog;
 import framework.view.UI;
 
-public class AccountHandler implements EventHandler {
+public class AccountHandler implements framework.view.EventHandler {
 
 	
 	public AccountHandler(int type) {
@@ -17,16 +17,16 @@ public class AccountHandler implements EventHandler {
 		this.type = type;
 	}
 	@Override
-	public void handle(UI view, FinancialCompany controller, ActionEvent e) {
+	public void handle(UI view,  ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		 System.out.println("Handler clicked "+type);
 		switch (type) {
 		
 		case personal:
-			accDialog=	new PersonalAccountDialog(controller, "Add Personal Account");
+		//	accDialog=	new PersonalAccountDialog("Add Personal Account");
 			break;
 		case company:
-			accDialog=new CompanyAccountDialog(controller, "Add Company Account");
+			//accDialog=new CompanyAccountDialog("Add Company Account");
 			break;
 		case addPersonal:
 			actionPerformedforPersonal();
@@ -35,13 +35,13 @@ public class AccountHandler implements EventHandler {
 			actionPerformedforCompany();
 			break;
 		case DepositDialog:
-			entryDialog=new DipositDialog(controller, "Deposit Amount");
+			entryDialog=new DepositDialog("Deposit Amount");
 			break;
 		case Deposit:
 			actionPerformedforDeposit();
 			break;
 		case WithdrawDialog:
-			entryDialog=new WithdrawDialog(controller, "Withdraw Amount");
+			entryDialog=new WithdrawDialog("Withdraw Amount");
 			break;
 		case Withdraw:
 			actionPerformedforWithdraw();

@@ -7,19 +7,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import framework.controller.EventHandler;
-import framework.controller.ExitHandler;
-import framework.controller.FinancialCompany;
+import framework.helper.IAction;
 import framework.view.AccountDialog;
 import framework.view.ActionButton;
+import framework.view.FwActionListener;
 import framework.view.UI;
-
+import framework.controller.*;
 public class PersonalAccountDialog extends AccountDialog {
-
-	public PersonalAccountDialog(FinancialCompany l, String title) {
-		super(l, title);
+    BankController controller;
+	public PersonalAccountDialog( String title,BankController controller) {
+		super(title,controller);
 		// TODO Auto-generated constructor stub
-
+        this.controller = controller;
 	}
 
 	@Override
@@ -29,25 +28,34 @@ public class PersonalAccountDialog extends AccountDialog {
 	      
 	        ActionButton okbButton = new ActionButton();
 	        okbButton.setText("OK");
-	        okbButton.setHandler(new AccountHandler(AccountHandler.addPersonal));
-	        okbButton.addActionListener(getListener());
+	        okbButton.addActionListener(new FwActionListener(new IAction(){
+	        	@Override
+				public void performAction() {
+	        	    String name =  namefField.getText(),
+	        	          street = streetField.getText(),
+	        	          city  =  cityField.getText(),
+	        	          state =  stateField.getText(),
+	        	          zip   =  zipField.getText(),
+	        	          email =  emailField.getText(),
+	        	          birthdate = bodField.getText();
+	        	    
+	        	   System.out.println("cont" + controller);
+	        	   controller.addPersonalCustomer(name, street, city, state, zip, email, birthdate);
+	        	   cancel();
+				}	
+	    	}));
 	        okbButton.setBounds(1, 1, 80, 20);
 	        actions.add(okbButton);
-	        
-	        
-	        ActionButton cancelButton = new ActionButton();
-	        
+	          
+	        ActionButton cancelButton = new ActionButton();    
 	      
 	        cancelButton.setText("Cancel");
-	        cancelButton.setHandler(new EventHandler() {
-				
-				@Override
-				public void handle(UI view, FinancialCompany controller, ActionEvent e) {
-					// TODO Auto-generated method stub
-					cancel();
-				}
-			});
-	        cancelButton.addActionListener(getListener());
+	        cancelButton.addActionListener(new FwActionListener(new IAction(){
+	        	@Override
+				public void performAction() {
+	        		cancel();
+				}	
+	    	}));
 	        cancelButton.setBounds(80, 1, 80, 20);
 	        actions.add(cancelButton);
 	        

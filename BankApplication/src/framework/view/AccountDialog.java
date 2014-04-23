@@ -16,19 +16,21 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
-import framework.controller.FinancialCompany;
+import framework.controller.FwController;
 
 public abstract class AccountDialog extends JFrame {
 
-	
+	  protected FwController controller;
 	  private JPanel actionsPanel;
 	  private JPanel extraFields;
-      private FinancialCompany controller;
+     // private FinancialCompany controller;
 	
-      public AccountDialog(FinancialCompany l, String title) {
+      public AccountDialog(String title , FwController controller) {
           super(title);
-          this.controller = l;
+       //   this.controller = l;
+          this.controller = controller;
           initComponents();
+          
       }
 
       private void initComponents() {
@@ -118,7 +120,7 @@ public abstract class AccountDialog extends JFrame {
       public abstract JPanel extraFields();
       
       public ActionListener getListener() {
-          return controller;
+          return null;//controller;
       }
       
       public String getAccType()
@@ -130,18 +132,16 @@ public abstract class AccountDialog extends JFrame {
       private JRadioButton savinButton;
       private JRadioButton checkinButton;
       
-      private JLabel nameLabel;
-      private JTextField namefField;
-      private JLabel streetlJLabel;
-      private JTextField streetField;
-      private JLabel cityJLabel;
-      private JTextField cityField;
-      private JLabel stateJLabel;
-      private JTextField stateField;
-      private JLabel zipJLabel;
-      private JTextField zipField;
-      private JLabel emailJLabel;
-      private JTextField emailField;
-      
-      
+      protected JLabel nameLabel;
+      protected JTextField namefField;
+      protected JLabel streetlJLabel;
+      protected JTextField streetField;
+      protected JLabel cityJLabel;
+      protected JTextField cityField;
+      protected JLabel stateJLabel;
+      protected JTextField stateField;
+      protected JLabel zipJLabel;
+      protected JTextField zipField;
+      protected JLabel emailJLabel;
+      protected JTextField emailField;
 }

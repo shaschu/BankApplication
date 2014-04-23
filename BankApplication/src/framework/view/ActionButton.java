@@ -1,9 +1,8 @@
+package framework.view; 
 
-package framework.view;
-
-import framework.controller.EventHandler;
 import javax.swing.JButton;
 
+import bank.AccountHandler;
 
 public class ActionButton
         extends JButton {
@@ -15,8 +14,8 @@ public class ActionButton
         super(text);
     }
 
-    public void setHandler(EventHandler handler) {
-        this.handler = handler;
+    public void setHandler(EventHandler eventHandler) {
+      //  this.handler = accountHandler;
     }
 
     public EventHandler getHandler() {

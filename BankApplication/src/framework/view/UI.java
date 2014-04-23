@@ -1,46 +1,47 @@
 
 package framework.view;
-
-import framework.controller.FinancialCompany;
-import framework.model.Account;
-import framework.model.Customer;
 import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.WindowConstants;
-import javax.swing.table.DefaultTableModel;
 
-public abstract class UI extends JFrame implements IView{
+import framework.controller.FwController;
 
-    public UI(FinancialCompany l, String title) {
+public abstract class UI extends JFrame{
+    protected ViewPane panel;
+    protected int height = 700,width = 400;
+    protected FwController controller;
+    
+    public UI( String title) {
         super(title);
-        this.controller = l;
+        initComponents();
+    }
+    
+    public UI( String title , ViewPane panel) {
+        super(title);
+        this.panel = panel;
         initComponents();
     }
 
-    private void initComponents() {
-        scroller = new JScrollPane();
-        viewerTable = new JTable();
-        actionsPanel = createActions();
-
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        viewerTable.setModel(createModel());
-        viewerTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        scroller.setViewportView(viewerTable);
-
-        getContentPane().add(scroller, java.awt.BorderLayout.CENTER);
-        getContentPane().add(actionsPanel, java.awt.BorderLayout.EAST);
-
-        setSize(700, 300);
+    public void render(){
+    	initComponents();
+    	
+    }
+    protected void initComponents() {       	
+	   setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+       setSize(height,width);
+       panel.render();
     }
 
-    public ActionListener getListener() {
-        return controller;
+    public void setPane(ViewPane panel){
+    	this.panel = panel;
+    }
+    
+    FwController getController(){
+    	return controller;
     }
 
-    public Object getSelectedCell(int col) {
+   /* public Object getSelectedCell(int col) {
         int row = viewerTable.getSelectedRow();
         return row == -1 ? null : viewerTable.getValueAt(row, col);
     }
@@ -49,16 +50,14 @@ public abstract class UI extends JFrame implements IView{
         int row = viewerTable.getSelectedRow();
         return row == -1 ? null : (String) viewerTable.getValueAt(row, 0);
     }
-
+  
     public abstract DefaultTableModel createModel();
 
     public void updateCell(Object o, int c) {
         viewerTable.setValueAt(o, viewerTable.getSelectedRow(), c);
     }
 
-    /**
-     *
-     */
+
     public abstract JPanel createActions();
 
     protected DefaultTableModel getModel() {
@@ -67,10 +66,7 @@ public abstract class UI extends JFrame implements IView{
 
     public abstract void updateModel();
 
-    /**
-     *
-     *
-     */
+
     public abstract void updateDataModel(Customer c, Account a, DefaultTableModel model);
 
     public void updateData(Customer c, Account a) {
@@ -78,15 +74,13 @@ public abstract class UI extends JFrame implements IView{
 //        accounts.add(a);
     }
     
-    /***********************************************************/
     //override the View interface methods
-    public void updateView(){
-    	
-    }
+
     
     private JPanel actionsPanel;
     private JScrollPane scroller;
     private JTable viewerTable;
-    private FinancialCompany controller;
+    */
+    //private FinancialCompany controller;
 //    private List<Account> accounts;
 }

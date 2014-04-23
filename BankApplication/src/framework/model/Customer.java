@@ -9,8 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Customer implements ICustomer {
+   private int customerId;
+   
+   private String name;
 
-    public Customer(String name, String email, String street, String city, String state, String zip) {
+   private String email;
+
+   private String street;
+
+   private String city;
+
+   private String state;
+   
+   private String zip;
+   
+   private List<Account> accounts;
+
+   public Customer(String name, String email, String street, String city, String state, String zip) {
         this.name = name;
         this.email = email;
         this.street = street;
@@ -21,28 +36,19 @@ public abstract class Customer implements ICustomer {
     }
 
     /**
-     *
+     *  customer adds account to account list
      */
     public void addAccount(Account a) {
         accounts.add(a);
     }
-
-    /**
-     *
-     */
-    public void removeAccount(Account a) {
+    
+   public void removeAccount(Account a) {
         accounts.remove(a);
     }
 
-    /**
-     *
-     */
-    public void sendEmail(String message) {
-        System.out.println("message sent: " + message);
-    }
 
     /**
-     *
+     *  generate accounts reports
      */
     public String generateAccountsReport() {
         StringBuilder sb = new StringBuilder();
@@ -52,20 +58,27 @@ public abstract class Customer implements ICustomer {
         return sb.toString();
     }
 
-    public String getField(String key) {
-        if ("name".equals(key)) {
-            return name;
-        } else if ("street".equals(key)) {
-            return street;
-        } else if ("city".equals(key)) {
+    /*
+     * TODO
+     * 
+     */
+    public String getName(){
+    	return name;
+    } 
+    
+    public String getStreet(){
+    	return street;
+    }
+    
+    public String getCity(){
             return city;
-        } else if ("zip".equals(key)) {
+    } 
+    public String getZip() {
             return zip;
-        } else if ("state".equals(key)) {
+     } 
+    
+    public String getState() {
             return state;
-        } else {
-            return null;
-        }
     }
 
     @Override
@@ -75,31 +88,6 @@ public abstract class Customer implements ICustomer {
         }
         return super.equals(o); //To change body of generated methods, choose Tools | Templates.
     }
-    /**
-     *
-     */
-    private String name;
-    /**
-     *
-     */
-    private String email;
-    /**
-     *
-     */
-    private String street;
-    /**
-     *
-     */
-    private String city;
-    /**
-     *
-     */
-    private String state;
-    /**
-     *
-     */
-    private String zip;
-    private List<Account> accounts;
 
     public void addInterest() {
         for (Account account : accounts) {
@@ -108,9 +96,28 @@ public abstract class Customer implements ICustomer {
     }
 
     public abstract String getType();
-
+    
+    @Override
+	public int getCustomerNumber() {
+		// TODO Auto-generated method stub
+		return customerId;
+	}
     @Override
     public String toString() {
         return name;
+    }
+   
+    //return the list of all customer accounts
+    public List<Account> getAccounts(){
+    	return accounts;
+    }
+    
+    //return a particular account by account number
+    public Account getAccount(int accNumber){
+    	for (Account account : accounts){
+    		if(account.getAccountNumber() == accNumber)
+    		   return account;
+    	}
+    	return null;
     }
 }

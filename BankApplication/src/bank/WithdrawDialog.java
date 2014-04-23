@@ -6,16 +6,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import framework.controller.EventHandler;
-import framework.controller.FinancialCompany;
+import framework.helper.IAction;
 import framework.view.ActionButton;
 import framework.view.EntryDialog;
+import framework.view.FwActionListener;
 import framework.view.UI;
 
 public class WithdrawDialog extends EntryDialog {
 
-	public WithdrawDialog(FinancialCompany l, String title) {
-		super(l, title);
+	public WithdrawDialog(String title) {
+		super(title);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -27,25 +27,24 @@ public class WithdrawDialog extends EntryDialog {
       
         ActionButton okbButton = new ActionButton();
         okbButton.setText("OK");
-        okbButton.setHandler(new AccountHandler(AccountHandler.Withdraw));
-        okbButton.addActionListener(getListener());
+        okbButton.addActionListener(new FwActionListener(new IAction(){
+        	@Override
+			public void performAction() {
+        		//ok operation
+			}	
+    	}));
         okbButton.setBounds(1, 1, 80, 20);
         actions.add(okbButton);
         
-        
         ActionButton cancelButton = new ActionButton();
         
-      
         cancelButton.setText("Cancel");
-        cancelButton.setHandler(new EventHandler() {
-			
-			@Override
-			public void handle(UI view, FinancialCompany controller, ActionEvent e) {
-				// TODO Auto-generated method stub
-				cancel();
-			}
-		});
-        cancelButton.addActionListener(getListener());
+        cancelButton.addActionListener(new FwActionListener(new IAction(){
+        	@Override
+			public void performAction() {
+        		cancel();
+			}	
+    	}));
         cancelButton.setBounds(80, 1, 80, 20);
         actions.add(cancelButton);
         

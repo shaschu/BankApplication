@@ -11,21 +11,22 @@ public class Personal
         this.birthdate = birthdate;
     }
 
-    @Override
+   /*@Override
     public String getField(String key) {
         if ("birthdate".equals(key)) {
             return birthdate;
         } else {
             return super.getField(key);
         }
-    }
+    }*/
 
     @Override
     public String getType() {
-        return "P";
+        return null;
     }
     /**
      *
      */
     private String birthdate;
+	
 }

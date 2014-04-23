@@ -7,7 +7,16 @@ import java.util.*;
  *  Account class
  */
 public abstract class Account  implements IAccount {
-
+    private int accountNumber;
+    
+    protected Customer customer;
+   
+    private List<Entry> entries = new ArrayList<Entry>();
+   
+    private double currentBalance;
+    
+    public double interest_rate;
+   
     public Account(Customer customer) {
         this.customer = customer;
       
@@ -20,29 +29,12 @@ public abstract class Account  implements IAccount {
         return currentBalance;
     }
 
-    public void applyTransaction(Entry e) {
-        entries.add(e);
-        currentBalance += e.getAmount();
-        notifyCustomer(createNotification(e));
+    public void addEntry(Entry entry) {
+        entries.add(entry);
+        currentBalance += entry.getAmount();
     }
 
-    /**
-     *
-     */
-       public abstract String createNotification(Entry e);
-
-    /**
-     *
-     */
-    public void notifyCustomer(String message) {
-        if (message != null) {
-            customer.sendEmail(message);
-        }
-    }
-
-    /**
-     *
-     */
+    //TODO
     public abstract String generateMonthlyReport();
 
     /**
@@ -71,25 +63,14 @@ public abstract class Account  implements IAccount {
     public String getField(String key) {
         return null;
     }
-
+    //return the account number
+    @Override
+    public int getAccountNumber(){
+    	return accountNumber;
+    }
+   
     @Override
     public String toString() {
         return getType();
-    }
-
-    private int accountNumber;
-    protected Customer customer;
-    /**
-     *
-     */
-    private List<Entry> entries = new ArrayList<Entry>();
-    /**
-     *
-     */
-    private double currentBalance;
-    /**
-     *
-     */
-    public double interest_rate;
-   
+    }   
 }

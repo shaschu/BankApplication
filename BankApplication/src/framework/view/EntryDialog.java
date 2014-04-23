@@ -16,18 +16,16 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
-import framework.controller.FinancialCompany;
 
 public abstract class EntryDialog extends JFrame {
-
 	
 	  private JPanel actionsPanel;
 	  private JPanel extraFields;
-      private FinancialCompany controller;
+      //private FinancialCompany controller;
 	
-      public EntryDialog(FinancialCompany l, String title) {
+      public EntryDialog( String title) {
           super(title);
-          this.controller = l;
+          //this.controller = l;
           initComponents();
       }
 
@@ -53,7 +51,7 @@ public abstract class EntryDialog extends JFrame {
       public abstract JPanel extraFields();
       
       public ActionListener getListener() {
-          return controller;
+          return null;//controller;
       }
       
       
