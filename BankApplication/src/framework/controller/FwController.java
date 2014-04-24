@@ -6,6 +6,8 @@ import framework.view.*;
 import framework.helper.*;
 import framework.model.*;
 
+import java.io.ObjectInputStream.GetField;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,6 +16,7 @@ public class FwController implements IController {
     protected IDataModel dataModel;
     protected ViewPane view;
     protected FwFactory creator;
+    private ArrayList<Customer> arrCus=new ArrayList<Customer>();
     
     public FwController(ViewPane view) 
     {
@@ -45,6 +48,13 @@ public class FwController implements IController {
     	//update the view
 		//TODO
 		//view.updateView();
+    	
+    	arrCus.add(customer);
+    }
+    
+    public ArrayList<Customer> getCustomer()
+    {
+    	return arrCus;
     }
  
     /* 

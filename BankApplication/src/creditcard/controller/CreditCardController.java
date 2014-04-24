@@ -8,6 +8,7 @@ import framework.helper.IAction;
 import framework.model.*;
 import framework.controller.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreditCardController extends FwController {
@@ -59,6 +60,11 @@ public class CreditCardController extends FwController {
     public void addSavingAccount(int custNumber,Account account) {
     	//super.addCustomerAccount(custNumber, account);
     }
+    
+//    public ArrayList<Customer> getCustomer()
+//    {
+//    	return super.getCustomer();
+//    }
     
     /* 
      * add deposit to customer account
