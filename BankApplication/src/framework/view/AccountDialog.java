@@ -40,21 +40,23 @@ public abstract class AccountDialog extends JFrame {
           
           getContentPane().setLayout(null);
           
-          checkinButton=new JRadioButton("Checkings");
-          checkinButton.setBounds(20, 10, 100, 20);
-          checkinButton.setSelected(true);
+//          checkinButton=new JRadioButton("Checkings");
+//          checkinButton.setBounds(20, 10, 100, 20);
+//          checkinButton.setSelected(true);
+//          
+//          savinButton=new JRadioButton("Savings");
+//          savinButton.setBounds(20, 30, 100, 20);
+//          checkinButton.setActionCommand("1");
+//          savinButton.setActionCommand("2");
+//          
+//          groupJButtons = new ButtonGroup();
+//          groupJButtons.add(checkinButton);
+//          groupJButtons.add(savinButton);
           
-          savinButton=new JRadioButton("Savings");
-          savinButton.setBounds(20, 30, 100, 20);
-          checkinButton.setActionCommand("1");
-          savinButton.setActionCommand("2");
+          getContentPane().add(optionButtons());
           
-          groupJButtons = new ButtonGroup();
-          groupJButtons.add(checkinButton);
-          groupJButtons.add(savinButton);
-          
-          getContentPane().add(checkinButton);
-          getContentPane().add(savinButton);
+//          getContentPane().add(checkinButton);
+//          getContentPane().add(savinButton);
           
           nameLabel=new JLabel("Name");
           nameLabel.setBounds(20, 60, 100, 20);
@@ -121,20 +123,21 @@ public abstract class AccountDialog extends JFrame {
       
       public abstract JPanel createActions();
       public abstract JPanel extraFields();
+      public abstract JPanel optionButtons();
       
       public ActionListener getListener() {
           return null;//controller;
       }
       
-      public String getAccType()
-      {
-    	  return savinButton.isSelected()?"Saving":"Checking";
-    	  
-      }
+//      public String getAccType()
+//      {
+//    	  return savinButton.isSelected()?"Saving":"Checking";
+//    	  
+//      }
       
-      protected JRadioButton savinButton;
-      protected JRadioButton checkinButton;
-      protected ButtonGroup groupJButtons;
+//      protected JRadioButton savinButton;
+//      protected JRadioButton checkinButton;
+//      protected ButtonGroup groupJButtons;
       protected JLabel nameLabel;
       protected JTextField namefField;
       protected JLabel streetlJLabel;

@@ -1,4 +1,4 @@
-package bank;
+package creditcard;
 
 import java.awt.event.ActionEvent;
 import java.sql.Savepoint;
@@ -15,9 +15,9 @@ import framework.view.ActionButton;
 import framework.view.FwActionListener;
 import framework.view.UI;
 import framework.controller.*;
-public class PersonalAccountDialog extends AccountDialog {
-    BankController controller;
-	public PersonalAccountDialog( String title,BankController controller) {
+public class PersonalCCAccountDialog extends AccountDialog {
+    CreditCardController controller;
+	public PersonalCCAccountDialog( String title,CreditCardController controller) {
 		super(title,controller);
 		// TODO Auto-generated constructor stub
         this.controller = controller;
@@ -39,11 +39,11 @@ public class PersonalAccountDialog extends AccountDialog {
 	        	          state =  stateField.getText(),
 	        	          zip   =  zipField.getText(),
 	        	          email =  emailField.getText(),
-	        	          birthdate = bodField.getText(),
+	        	          ccNumber = ccNumberField.getText(),
 	        	          accType=groupJButtons.getSelection().getActionCommand();
 	        	    
 	        	  // System.out.println("cont" + controller);
-	        	   controller.addPersonalAccount(name, street, city, state, zip, email, birthdate,accType);
+	        	   controller.addPersonalAccount(name, street, city, state, zip, email, ccNumber,accType);
 	        	   cancel();
 				}	
 	    	}));
@@ -63,7 +63,7 @@ public class PersonalAccountDialog extends AccountDialog {
 	        actions.add(cancelButton);
 	        
 	       
-	        actions.setBounds(60, 220, 200, 20);
+	        actions.setBounds(70, 230, 200, 20);
 	        return actions;
 	}
 	
@@ -76,48 +76,67 @@ public class PersonalAccountDialog extends AccountDialog {
 	public JPanel extraFields() {
 		// TODO Auto-generated method stub
 		JPanel extra = new JPanel(null);
-		bodLabel=new JLabel("BirthDate");
-		bodLabel.setBounds(1, 3, 100, 20);
-		extra.add(bodLabel);
+		ccNumberLabel=new JLabel("CC Number");
+		ccNumberLabel.setBounds(1, 3, 100, 20);
+		extra.add(ccNumberLabel);
 		
-		bodField=new JTextField();
-		bodField.setBounds(60, 3, 120, 20);
-		extra.add(bodField);
+		ccNumberField=new JTextField();
+		ccNumberField.setBounds(60, 3, 120, 20);
+		extra.add(ccNumberField);
 		
-		extra.setBounds(19, 180, 200, 30);
+		expDateLabel=new JLabel("Exp Date");
+		expDateLabel.setBounds(1, 25, 100, 20);
+		extra.add(expDateLabel);
+		
+		expDateField=new JTextField();
+		expDateField.setBounds(60, 25, 120, 20);
+		extra.add(expDateField);
+		
+		extra.setBounds(19, 180, 200, 45);
 		return extra;
 	}
 	
-	private JLabel bodLabel;
-	private JTextField bodField;
-  private JRadioButton savinButton;
-  private JRadioButton checkinButton;
-  private ButtonGroup groupJButtons;
+	private JLabel ccNumberLabel;
+	private JTextField ccNumberField;
+	
+	private JLabel expDateLabel;
+	private JTextField expDateField;
+	private JRadioButton goldButton;
+	private JRadioButton silverButton;
+	private JRadioButton bronzeButton;
+	private ButtonGroup groupJButtons;
+	
 	@Override
 	public JPanel optionButtons() {
 		// TODO Auto-generated method stub
-JPanel optionButtons=new JPanel(null);
+		JPanel optionButtons=new JPanel(null);
 		
-		checkinButton=new JRadioButton("Checkings");
-		checkinButton.setBounds(20, 1, 100, 20);
-		checkinButton.setSelected(true);
+		goldButton=new JRadioButton("Gold");
+		goldButton.setBounds(20, 0, 100, 20);
+		goldButton.setSelected(true);
+      
+		silverButton=new JRadioButton("Silver");
+		silverButton.setBounds(20, 20, 100, 20);
 		
-		savinButton=new JRadioButton("Savings");
-		savinButton.setBounds(20, 20, 100, 20);
-		checkinButton.setActionCommand("1");
-		savinButton.setActionCommand("2");
+		bronzeButton=new JRadioButton("Bronze");
+		bronzeButton.setBounds(20, 40, 100, 20);
 		
-		groupJButtons = new ButtonGroup();
-		groupJButtons.add(checkinButton);
-		groupJButtons.add(savinButton);
+		goldButton.setActionCommand("3");
+		silverButton.setActionCommand("4");
+		bronzeButton.setActionCommand("5");
 		
-          optionButtons.add(checkinButton);
-	      optionButtons.add(savinButton);
+      
+	      groupJButtons = new ButtonGroup();
+	      groupJButtons.add(goldButton);
+	      groupJButtons.add(silverButton);
+	      groupJButtons.add(bronzeButton);
 	      
+	      optionButtons.add(goldButton);
+	      optionButtons.add(silverButton);
+	      optionButtons.add(bronzeButton);
 	      
-	      optionButtons.setBounds(18, 10, 100, 45);
+	      optionButtons.setBounds(18, 1, 100, 58);
 			
 			return optionButtons;
 	}
-
 }

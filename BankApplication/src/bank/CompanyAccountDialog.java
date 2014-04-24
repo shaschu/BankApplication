@@ -3,8 +3,10 @@ package bank;
 import java.awt.event.ActionEvent;
 import java.sql.Savepoint;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import framework.helper.IAction;
@@ -91,5 +93,34 @@ public class CompanyAccountDialog extends AccountDialog {
 	
 	private JLabel noOfEmployeelabel;
 	private JTextField noOfEmployeeField;
+	  private JRadioButton savinButton;
+	  private JRadioButton checkinButton;
+	  private ButtonGroup groupJButtons;
+	@Override
+	public JPanel optionButtons() {
+		// TODO Auto-generated method stub
+		JPanel optionButtons=new JPanel(null);
+		
+		checkinButton=new JRadioButton("Checkings");
+		checkinButton.setBounds(20, 1, 100, 20);
+		checkinButton.setSelected(true);
+		
+		savinButton=new JRadioButton("Savings");
+		savinButton.setBounds(20, 20, 100, 20);
+		checkinButton.setActionCommand("1");
+		savinButton.setActionCommand("2");
+		
+		groupJButtons = new ButtonGroup();
+		groupJButtons.add(checkinButton);
+		groupJButtons.add(savinButton);
+		
+          optionButtons.add(checkinButton);
+	      optionButtons.add(savinButton);
+	      
+	      
+	      optionButtons.setBounds(18, 10, 100, 45);
+			
+			return optionButtons;
+	}
 
 }
