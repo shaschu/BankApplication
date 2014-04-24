@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import creditcard.ChargeDialog;
 import creditcard.CreditCardUI;
 import creditcard.DepositDialog;
+import creditcard.GenerateReportDialog;
 import creditcard.PersonalCCAccountDialog;
 import framework.helper.IAction;
 import framework.model.Account;
@@ -57,7 +58,7 @@ public class CreditCardTablePane extends TableView{
         generateBillActionButton.addActionListener(new FwActionListener(new IAction(){
         	@Override
 			public void performAction() {
-        	//	new CompanyAccountDialog("Add Company Account" ,parentWindow.getController());
+        		new GenerateReportDialog("Generate Bill" ,parentWindow.getController());
 			}	
     	}));
          actions.add(generateBillActionButton);

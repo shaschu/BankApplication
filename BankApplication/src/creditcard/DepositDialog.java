@@ -12,7 +12,7 @@ import framework.view.FwActionListener;
 
 
 public class DepositDialog extends EntryDialog {
-	CreditCardController controller;
+	private CreditCardController controller;
 	public DepositDialog( String title, CreditCardController controller) {
 		super( title);
 		this.controller = controller;

@@ -49,7 +49,7 @@ public Entry createEntry(double amount) {
 public Customer createCCardCustomer(String name, String street, String city,
 		String state, String zip, String email, String ccNumber, String expDate,String atype) {
 	// TODO Auto-generated method stub
-	return null;
+	return new Personal(name, email, street, city, state, zip, ccNumber, expDate, atype);
 }
 
 
