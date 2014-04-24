@@ -4,10 +4,15 @@ package framework.helper;
 import framework.model.*;
 
 public abstract  class AFactory {
+	
  // public abstract Account createAccount();
   public abstract Customer createPersonalCustomer(String name, String street, String  city,
 		                                          String state, String zip, String email,String birthdate);
   public abstract Customer createCompanyCustomer(String name, String street, String  city, String state, 
 		                                         String zip, String email, int numOfEmps);
   public abstract Entry createEntry(double amount);
+  
+  public abstract Customer createCCardCustomer(String name, String street, String  city,
+          String state, String zip, String email,String ccNumber,String expDate,String atype);
+  
 }

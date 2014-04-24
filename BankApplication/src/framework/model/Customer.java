@@ -22,8 +22,32 @@ public abstract class Customer implements ICustomer {
    private String state;
    
    private String zip;
+  
+   private String ccNumber;
+   private String expDate;
+   private String type;
+  
    
-   private List<Account> accounts;
+   public String getCcNumber() {
+	return ccNumber;
+}
+
+public void setCcNumber(String ccNumver) {
+	this.ccNumber = ccNumver;
+}
+
+public String getExpDate() {
+	return expDate;
+}
+
+public void setExpDate(String expDate) {
+	this.expDate = expDate;
+}
+
+public void setType(String type) {
+	this.type = type;
+}
+private List<Account> accounts;
 
    public Customer(String name, String email, String street, String city, String state, String zip) {
         this.name = name;

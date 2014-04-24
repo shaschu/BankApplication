@@ -40,4 +40,11 @@ public Entry createEntry(double amount) {
 	return new Entry(amount);
 }
 
+@Override
+public Customer createCCardCustomer(String name, String street, String city,
+		String state, String zip, String email, String ccNumber, String expDate,String atype) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 }

@@ -32,7 +32,7 @@ public class BankController extends FwController {
     }
     
     /**
-     *  action to Personal customer to the data model
+     *  action to Company customer to the data model
      */
     public void addCompanyAccount(String name, String street, String city, String state,
     		                       String zip, String email, int numOfEmps,String accType) 

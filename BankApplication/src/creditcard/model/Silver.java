@@ -1,16 +1,16 @@
-package bank.model;
+package creditcard.model;
 
 import framework.model.Account;
 import framework.model.Customer;
 
-public class Checking extends Account{
+public class Silver extends Account{
 	
-	public final static double interest=0.8;
+	public final static double interest=0.9;
 	
-	public  Checking(){
+	public  Silver(){
 		super();
 	}
-	public Checking(Customer customer) {
+	public Silver(Customer customer) {
 		super(customer);
 		// TODO Auto-generated constructor stub
 	}

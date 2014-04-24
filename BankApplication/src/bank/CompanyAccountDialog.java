@@ -41,7 +41,7 @@ public class CompanyAccountDialog extends AccountDialog {
 		        	          zip   =  zipField.getText(),
 		        	          email =  emailField.getText(),
 		        	          accType=groupJButtons.getSelection().getActionCommand();
-		        	   int numOfEmps= Integer.parseInt(noOfEmployeeField.getText());
+		        	         int numOfEmps= noOfEmployeeField.getText().isEmpty()? 0 : Integer.parseInt(noOfEmployeeField.getText());
 		        	  // checkinButton.get
 		        	    
 		        	   System.out.println("cont" + controller);
@@ -51,8 +51,7 @@ public class CompanyAccountDialog extends AccountDialog {
 	    	}));
 	        okbButton.setBounds(1, 1, 80, 20);
 	        actions.add(okbButton);
-	        
-	        
+	       
 	        ActionButton cancelButton = new ActionButton();
 	        
 	        cancelButton.setText("Cancel");

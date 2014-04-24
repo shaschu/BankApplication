@@ -40,10 +40,11 @@ public class PersonalCCAccountDialog extends AccountDialog {
 	        	          zip   =  zipField.getText(),
 	        	          email =  emailField.getText(),
 	        	          ccNumber = ccNumberField.getText(),
+	        	          expDate=expDateField.getText(),
 	        	          accType=groupJButtons.getSelection().getActionCommand();
 	        	    
 	        	  // System.out.println("cont" + controller);
-	        	   controller.addPersonalAccount(name, street, city, state, zip, email, ccNumber,accType);
+	        	   controller.addCCAccount(name, street, city, state, zip, email, ccNumber,expDate, accType);
 	        	   cancel();
 				}	
 	    	}));

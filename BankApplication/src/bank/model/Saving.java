@@ -3,10 +3,13 @@ package bank.model;
 import framework.model.Account;
 import framework.model.Customer;
 
+
 /*
  * Saving account for Bank
  * */
 public class Saving extends Account{
+	
+	public final static double interest=1.2;
 
 	public Saving(){
 	  super();	

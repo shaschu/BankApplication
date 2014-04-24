@@ -21,7 +21,12 @@ public abstract class FwFactory extends AFactory{
 		//String name, String email, String street, String city, String state, String zip, String no_of_Employee
 		return new Organization(name, email,street, city, state, zip, numOfEmps);
 	}
-
+	@Override
+	 public Customer createCCardCustomer(String name, String street, String  city,String state, String zip, String email,String ccNumber,String expDate,String atype)
+	 {
+		return new Personal(name, email,street, city, state, zip, ccNumber,expDate,atype);
+		 
+	 }
 	 public abstract Entry createEntry(double amount);
 
 	 public abstract IDataModel createDataModel() ;

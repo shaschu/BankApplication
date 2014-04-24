@@ -114,13 +114,13 @@ public class CreditCardTablePane extends TableView{
         	while (customers.hasNext()) {
 	        	Customer customer = customers.next();
 	        	objects[0] = customer.getName();
-	        	objects[1] = customer.getStreet();
-	        	objects[2] = customer.getCity();
-	        	objects[3] = customer.getState();
-	        	objects[4] = customer.getZip();
-	        	objects[5] = customer.getStreet();
-	        	objects[6] = customer.getStreet();
-	        	objects[7] = customer.getTotalAmount();
+	        	objects[1] = customer.getCcNumber();
+	        	objects[2] = customer.getExpDate();
+	        	objects[3] = customer.getType();
+	        	objects[4] = customer.getTotalAmount();
+//	        	objects[5] = customer.getStreet();
+//	        	objects[6] = customer.getStreet();
+//	        	objects[7] = customer.getTotalAmount();
 	        	aModel.addRow(objects);
         	}
         	//binding the jtable to the model

@@ -32,7 +32,7 @@ public class CreditCardController extends FwController {
     }
     
     /**
-     *  action to Personal customer to the data model
+     *  action to Comapny customer to the data model
      */
     public void addCompanyAccount(String name, String street, String city, String state,
     		                       String zip, String email, int numOfEmps,String accType) 
@@ -42,6 +42,17 @@ public class CreditCardController extends FwController {
     	super.addCustomer(customer);
     }
  
+    /**
+     *  action to CC customer to the data model
+     */
+    public void addCCAccount(String name, String street, String city,  String state,
+    		                        String zip, String email, String ccNUmber,String Expdate, String accType) 
+    {
+        Customer customer =  creator.createCCardCustomer(name.trim(), street, city, state, zip, email, ccNUmber,Expdate,accType);
+    	customer.addAccount(creator.createAccount(accType));
+        addCustomer(customer);
+    }
+    
     /* 
      * add entry to Saving account
      *  */
