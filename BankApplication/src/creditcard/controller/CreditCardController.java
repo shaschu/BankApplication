@@ -1,7 +1,7 @@
 /* 
  * Framework controller class
  * */
-package creditcard;
+package creditcard.controller;
 import framework.view.*;
 import framework.helper.FwFactory;
 import framework.helper.IAction;

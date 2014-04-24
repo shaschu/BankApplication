@@ -1,15 +1,18 @@
 
-package bank;
+package creditcard.controller;
 
 import javax.swing.JFrame;
 
+import creditcard.model.Bronze;
+import creditcard.model.Gold;
+import creditcard.model.Silver;
 import bank.model.*;
 import framework.helper.*;
 import framework.model.*;
 import framework.view.UI;
 import framework.view.ViewPane;
 
-public class BankFactory extends FwFactory{
+public class CreditCardFactory extends FwFactory{
 
  @Override
  public IDataModel createDataModel()
@@ -26,10 +29,12 @@ public ViewPane defaultPane(UI parentWindow) {
 @Override 
 public Account createAccount(String accType){
 	 switch(Integer.parseInt(accType)){
-	 case 1:
-		 return new Saving();
 	 case 2:
-		 return new Checking();
+		 return new Gold();
+	 case 3:
+		 return new Silver();
+	 case 4:
+		 return new Bronze();
 	 }
 	 return null;
   }
@@ -46,5 +51,7 @@ public Customer createCCardCustomer(String name, String street, String city,
 	// TODO Auto-generated method stub
 	return null;
 }
+
+
 
 }

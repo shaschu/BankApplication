@@ -1,4 +1,4 @@
-package creditcard;
+package creditcard.controller;
 
 import java.util.Iterator;
 import java.util.List;
@@ -8,6 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
+import creditcard.ChargeDialog;
+import creditcard.CreditCardUI;
+import creditcard.DepositDialog;
+import creditcard.PersonalCCAccountDialog;
 import framework.helper.IAction;
 import framework.model.Account;
 import framework.model.Customer;

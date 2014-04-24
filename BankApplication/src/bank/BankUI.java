@@ -1,8 +1,10 @@
 
 package bank;
 
+import bank.controller.BankController;
+import bank.controller.BankFactory;
+import bank.controller.BankTablePane;
 import framework.view.*;
-import framework.view.UI;
 
 public class BankUI extends UI {
     private BankController controller;

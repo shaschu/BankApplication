@@ -4,6 +4,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import bank.controller.BankController;
 import framework.helper.IAction;
 import framework.view.ActionButton;
 import framework.view.EntryDialog;

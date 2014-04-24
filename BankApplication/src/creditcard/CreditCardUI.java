@@ -1,8 +1,10 @@
 
 package creditcard;
 
+import creditcard.controller.CreditCardController;
+import creditcard.controller.CreditCardFactory;
+import creditcard.controller.CreditCardTablePane;
 import framework.view.*;
-import framework.view.UI;
 
 public class CreditCardUI extends UI {
     private CreditCardController controller;

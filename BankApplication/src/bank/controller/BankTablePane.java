@@ -1,4 +1,4 @@
-package bank;
+package bank.controller;
 
 import java.util.Iterator;
 import java.util.List;
@@ -8,6 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
+import bank.BankUI;
+import bank.CompanyAccountDialog;
+import bank.DepositDialog;
+import bank.PersonalAccountDialog;
+import bank.WithdrawDialog;
 import framework.helper.IAction;
 import framework.model.Account;
 import framework.model.Customer;

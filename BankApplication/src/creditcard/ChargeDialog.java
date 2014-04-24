@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import creditcard.controller.CreditCardController;
 import framework.helper.IAction;
 import framework.view.ActionButton;
 import framework.view.EntryDialog;
